@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog class="sapUiSizeCompact" stretch="{device>/system/phone}" draggable="true" busy="{jsonModel>/busyView}">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="Record Completion"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<FlexBox direction="Column">
+				<InputListItem label="METRC UID">
+					<Input width="22rem" value="{jsonModel>/recCompletionObj/METRCUID}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Quantity">
+					<Input width="22rem" value="{jsonModel>/recCompletionObj/Quantity}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Item">
+					<Input width="22rem" value="{jsonModel>/recCompletionObj/ItemName}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Flower (lb)">
+					<Input width="6rem" value="{jsonModel>/displayrecCompletionObj/0/flowerQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+					<Input id="beggingTag11" width="16rem" submit="beggingTag11Scan" placeholder="Scan package tag" liveChange="validateTag"/>
+
+					<!--<Select id="beggingTag11" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/displayrecCompletionObj/0/flowerTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="B-Flower (lb)">
+					<Input width="6rem" value="{jsonModel>/displayrecCompletionObj/1/BflowerQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+					<Input id="beggingTag2" width="16rem" submit="beggingTag2Scan" placeholder="Scan package tag" liveChange="validateTag"/>
+					<!--<Select id="beggingTag2" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/displayrecCompletionObj/1/BflowerTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="Smalls (lb)">
+					<Input width="6rem" value="{jsonModel>/displayrecCompletionObj/2/smallQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+					<Input id="beggingTag3" width="16rem" submit="beggingTag3Scan" placeholder="Scan package tag" liveChange="validateTag"/>
+					<!--<Select id="beggingTag3" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/displayrecCompletionObj/2/smallTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="B-Smalls (lb)">
+					<Input width="6rem" value="{jsonModel>/displayrecCompletionObj/3/BsmallQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+					<Input id="beggingTag4" width="16rem" submit="beggingTag4Scan" placeholder="Scan package tag" liveChange="validateTag"/>
+					<!--<Select id="beggingTag4" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/displayrecCompletionObj/3/BsmallTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="Popcorn (lb)">
+					<Input width="6rem" value="{jsonModel>/displayrecCompletionObj/4/popcornQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+					<Input id="beggingTag5" width="16rem" submit="beggingTag5Scan" placeholder="Scan package tag" liveChange="validateTag"/>
+					<!--<Select id="beggingTag5" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/displayrecCompletionObj/4/popcornTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="A-Trim (lb)">
+					<Input width="6rem" value="{jsonModel>/displayrecCompletionObj/5/AtrimQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+					<Input id="beggingTag6" width="16rem" submit="beggingTag6Scan" placeholder="Scan package tag" liveChange="validateTag"/>
+					<!--<Select id="beggingTag6" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/displayrecCompletionObj/5/AtrimTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="B-Trim (lb)">
+					<Input width="6rem" value="{jsonModel>/displayrecCompletionObj/6/BtrimQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+					<Input id="beggingTag7" width="16rem" submit="beggingTag7Scan" placeholder="Scan package tag" liveChange="validateTag"/>
+					<!--<Select id="beggingTag7" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/displayrecCompletionObj/6/BtrimTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="Mold (lb)">
+					<Input width="6rem" value="{jsonModel>/displayrecCompletionObj/7/moldQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+					<Input id="beggingTag8" width="16rem" submit="beggingTag8Scan" placeholder="Scan package tag" liveChange="validateTag"/>
+					<!--<Select id="beggingTag8" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/displayrecCompletionObj/7/moldTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="Waste (lb)">
+					<Input width="22rem" value="{jsonModel>/displayrecCompletionObj/8/wasteQty}" type="Number" change="onChangeValue" placeholder="Enter Qty"/>
+				</InputListItem>
+			</FlexBox>
+		</content>
+		<beginButton>
+			<Button type="Emphasized" text="OK" press="confirmRecordCompletion" enabled="{= !${jsonModel>/busyView} }"/>
+		</beginButton>
+		<endButton>
+			<Button type="Transparent" text="Cancel" press="recordCompletionCancel"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

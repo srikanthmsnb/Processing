@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog class="sapUiSizeCompact" stretch="{device>/system/phone}" draggable="true" busy="{jsonModel>/busyView}">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="Buck"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<FlexBox direction="Column">
+				<InputListItem label="METRC UID">
+					<Input width="21rem" value="{jsonModel>/buckObj/METRCUID}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Quantity">
+					<Input width="21rem" value="{jsonModel>/buckObj/Quantity}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Item">
+					<Input width="21rem" value="{jsonModel>/buckObj/ItemName}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Bucked Item" id="buckedItemName">
+					<Input width="5rem" value="{jsonModel>/buckObj/BuckedQty}" type="Number" change="onQtyChange" placeholder="Enter qty"/>
+					<Input id="beggingTag" width="16rem" submit="beggingTagScan" placeholder="Scan package tag" liveChange="validateTag">
+						<customData>
+							<core:CustomData key="field" value="begin1"/>
+						</customData>
+					</Input>
+					<!--<Select id="beggingTag" width="16rem" forceSelection="false" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/buckObj/BuckedPackage}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="B-Trim Item" id="trimItemName">
+					<Input width="5rem" value="{jsonModel>/buckObj/TrimQty}" type="Number" change="onQtyChange" placeholder="Enter qty"/>
+					<Input id="beggingTag1" width="16rem" submit="beggingTag1Scan" placeholder="Scan package tag" liveChange="validateTag">
+						<customData>
+							<core:CustomData key="field" value="begin2"/>
+						</customData>
+					</Input>
+					<!--<Select id="beggingTag1" width="16rem" forceSelection="false" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/buckObj/TrimPackage}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="Waste (lb)">
+					<Input id="waste" width="21rem" type="Number" value="{jsonModel>/buckObj/WasteQty}" change="onQtyChange"/>
+				</InputListItem>
+				<InputListItem label="Moisture Loss (lb)">
+					<Input id="moistLoss" width="21rem" value="{jsonModel>/buckObj/moistLoss}" change="onQtyChange"/>
+				</InputListItem>
+			</FlexBox>
+		</content>
+		<beginButton>
+			<Button type="Emphasized" text="OK" press="onconfirmBuck" enabled="{= !${jsonModel>/busyView} }"/>
+		</beginButton>
+		<endButton>
+			<Button type="Transparent" text="Cancel" press="createBuckCancel"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

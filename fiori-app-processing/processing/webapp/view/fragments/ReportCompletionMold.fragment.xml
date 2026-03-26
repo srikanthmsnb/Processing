@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog class="sapUiSizeCompact" stretch="{device>/system/phone}" draggable="true" busy="{jsonModel>/busyView}">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="Report Completion(Mold)"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<FlexBox direction="Column">
+				<InputListItem label="METRC UID">
+					<Input width="22rem" value="{jsonModel>/moldObj/METRCUID}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Quantity">
+					<Input width="22rem" value="{jsonModel>/moldObj/Quantity}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Item">
+					<Input width="22rem" value="{jsonModel>/moldObj/ItemName}" editable="false"/>
+				</InputListItem>
+		
+				<InputListItem label="Mold (lb)">
+					<Input width="6rem" value="{jsonModel>/moldObj/moldQty}" type="Number" placeholder="Enter Qty"/>
+					<Input id="beggingTagMold" width="16rem" submit="beggingTagMoldScan" placeholder="Scan package tag" liveChange="validateTag"/>
+					<!--<Select id="reportMold" width="16rem" forceSelection="true" items="{path: 'jsonModel>/harvestTagsData'}" busy="{jsonModel>/ComboBoxBusy}"-->
+					<!--	selectedKey="{jsonModel>/moldObj/moldTag}">-->
+					<!--	<core:Item key="{jsonModel>Label}" text="{jsonModel>Label}"/>-->
+					<!--</Select>-->
+				</InputListItem>
+				<InputListItem label="Waste (lb)">
+					<Input width="22rem" value="{jsonModel>/moldObj/WasteQty}" type="Number" placeholder="Enter Qty"/>
+				</InputListItem>
+			</FlexBox>
+		</content>
+		<beginButton>
+			<Button type="Emphasized" text="OK" press="onconfirmReportCompletionMold" enabled="{= !${jsonModel>/busyView} }"/>
+		</beginButton>
+		<endButton>
+			<Button type="Transparent" text="Cancel" press="ReportCompletionMoldCancel"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

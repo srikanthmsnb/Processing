@@ -1,0 +1,63 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog class="sapUiSizeCompact" stretch="{device>/system/phone}" title="View Trim Event" draggable="true" resizable="true" busy="{jsonModel>/busyView}">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="View Trim Event"/>
+				</contentMiddle>
+				<contentRight>
+					<Button icon="sap-icon://excel-attachment" tooltip="Export to Excel" type="Default" press="handleExportToExcel"/>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox class="sapUiTinyMargin">
+				<Table width="100%" mode="None" items="{path:'jsonModel>/trimData'}">
+					<columns>
+						<Column popinDisplay="Inline">
+							<Label text="Event Date Time" design="Bold"/>
+						</Column>
+						<Column popinDisplay="Inline">
+							<Label text="Flower (lb)" design="Bold"/>
+						</Column>
+						<Column popinDisplay="Inline">
+							<Label text="Smalls (lb)" design="Bold"/>
+						</Column>
+						<Column popinDisplay="Inline">
+							<Label text="A-trim (lb)" design="Bold"/>
+						</Column>
+						<Column popinDisplay="Inline">
+							<Label text="Popcorn (lb)" design="Bold"/>
+						</Column>
+						<Column popinDisplay="Inline">
+							<Label text="Kief (lb)" design="Bold"/>
+						</Column>
+						<Column popinDisplay="Inline">
+							<Label text="Waste (lb)" design="Bold"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem >
+							<cells>
+								<!--<Text text="{jsonModel>CreateDate} {jsonModel>CreateTime}"/>-->
+								<Text text="{path:'jsonModel>CreateDate',formatter:'.formatter.dateDisplay'} {jsonModel>CreateTime}"/>
+								<Text text="{jsonModel>U_NFLWR}"/>
+								<Text text="{jsonModel>U_NSMLS}"/>
+								<Text text="{jsonModel>U_NATRM}"/>
+								<Text text="{jsonModel>U_NPOPC}"/>
+								<Text text="{jsonModel>U_NKIEF}"/>
+								<Text text="{jsonModel>U_NWAST}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+		<!--<beginButton>-->
+		<!--	<Button type="Emphasized" text="{i18n>SubmitTemplate}" press="onConfirmTemplateTranfer"/>-->
+		<!--</beginButton>-->
+		<endButton>
+			<Button type="Transparent" text="Close" press="templateTransClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

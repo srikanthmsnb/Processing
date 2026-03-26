@@ -1,0 +1,9 @@
+{
+    "tiles": [
+      {
+        "text": "Processing",
+        "subtitle": "",
+        "icon": "sap-icon://general-leave-request"
+      }
+    ]
+  }

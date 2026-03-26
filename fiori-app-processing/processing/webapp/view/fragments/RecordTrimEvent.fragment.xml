@@ -1,0 +1,113 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog class="sapUiSizeCompact"  draggable="true" busy="{jsonModel>/busyView}">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="Record Trim Event"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<FlexBox direction="Column">
+				<InputListItem label="METRC UID">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/METRCUID}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Quantity">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/Quantity}" editable="false"/>
+				</InputListItem>
+				<InputListItem label="Item">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/ItemName}" editable="false"/>
+				</InputListItem>
+				<!--	<InputListItem label="Flower (lb)">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/Flower}" type="Number" change="onChange"/>
+				</InputListItem>
+				<InputListItem label="Smalls (lb)">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/Smalls}" type="Number" change="onChange"/>
+				</InputListItem>
+				<InputListItem label="A-trim (lb)">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/Atrim}" type="Number" change="onChange"/>
+				</InputListItem>
+				<InputListItem label="Popcorn (lb)">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/Popcorn}" type="Number" change="onChange"/>
+				</InputListItem>
+				<InputListItem label="Kief (lb)">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/Kief}" type="Number" change="onChange"/>
+				</InputListItem>
+				<InputListItem label="Waste (lb)">
+					<Input width="20rem" value="{jsonModel>/recTrimObj/Waste}" type="Number" change="onChange"/>
+				</InputListItem>-->
+			</FlexBox>
+			<!--	<Table inset="false" items="{ path: '/trimEventFields' }">
+				<columns>
+					<Column width="33%">
+						<Text text=""/>
+					</Column>
+					<Column width="33%">
+						<Text text=""/>
+					</Column>
+					<Column width="33%">
+						<Text text=""/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<HBox width="80%" justifyContent="SpaceBetween" alignItems="Center">
+								<Label text="{L1}"/>
+								<Input value="{L1VAL}" width="6rem" type="Number"/>
+							</HBox>
+							<HBox width="80%" justifyContent="SpaceBetween" alignItems="Center">
+								<Label text="{L2}"/>
+								<Input value="{L2VAL}" width="6rem" type="Number"/>
+							</HBox>
+							<HBox width="80%" justifyContent="SpaceBetween" alignItems="Center">
+								<Label text="{L3}"/>
+								<Input value="{L3VAL}" width="6rem" type="Number"/>
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>-->
+			<Table items="{/trimEventFields}" inset="false">
+				<!-- HEADER -->
+				<columns>
+					<Column>
+						<Text text=""/>
+					</Column>
+					<Column>
+						<Text text="Bulk"/>
+					</Column>
+					<Column>
+						<Text text="Larges"/>
+					</Column>
+					<Column>
+						<Text text="Mediums"/>
+					</Column>
+					<Column>
+						<Text text="Smalls"/>
+					</Column>
+				</columns>
+				<!-- ROW TEMPLATE -->
+				<items>
+					<ColumnListItem>
+						<cells>
+							<!-- Row Label -->
+							<Text text="{type}"/>
+							<!-- Editable Cells -->
+							<Input value="{Bulk}"/>
+							<Input value="{Larges}"/>
+							<Input value="{Mediums}"/>
+							<Input value="{Smalls}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button type="Emphasized" text="OK" press="confirmRecordTrim" enabled="{= !${jsonModel>/busyView} }"/>
+		</beginButton>
+		<endButton>
+			<Button type="Transparent" text="Cancel" press="createRecordTrimCancel"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
